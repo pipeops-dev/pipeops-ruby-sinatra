@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  'Welcome to Pipeops Ruby App!'
+  'Welcome to Pipeops Ruby on Sinatra App!'
 end
