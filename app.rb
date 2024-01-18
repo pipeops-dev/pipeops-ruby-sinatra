@@ -1,5 +1,17 @@
-require 'sinatra'
+require "rubygems"
+require "bundler/setup"
+Bundler.require :default
 
-get '/' do
-  'Welcome to Pipeops Ruby on Sinatra App!'
+enable :sessions
+
+get "/" do
+  @name = session[:name]
+
+  if @name
+    @title = "Welcome #@name"
+    erb :welcome
+  else
+    @title = "Hello"
+    erb :index
+  end
 end
