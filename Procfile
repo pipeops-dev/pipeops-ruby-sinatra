@@ -1,0 +1,1 @@
+web: bundle exec rackup -o 0.0.0.0 --port 3200
