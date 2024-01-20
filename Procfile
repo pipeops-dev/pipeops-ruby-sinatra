@@ -1,1 +1,0 @@
-web: bundle install && bundle exec ruby app.rb -p 4567
