@@ -1,0 +1,2 @@
+buildpacks:
+- https://github.com/paketo-buildpacks/ruby
