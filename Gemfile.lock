@@ -14,4 +14,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 2.0)
   sinatra
+
+BUNDLED WITH
+   2.4.22
