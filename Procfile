@@ -1,1 +1,1 @@
-web: bundle exec puma -C app.rb
+web: bundle exec ruby app.rb -p 4567
