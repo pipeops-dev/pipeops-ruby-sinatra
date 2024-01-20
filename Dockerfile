@@ -5,10 +5,15 @@ WORKDIR /app
 
 # Copy Gemfiles first to leverage caching
 COPY Gemfile* ./
+COPY Gemfile.lock ./
+
+RUN gem cleanup
 
 # Install dependencies
-RUN gem install bundler && \
-    bundle install --jobs "$(nproc)" --retry 3
+RUN gem install bundler 
+
+RUN bundle install --jobs "$(nproc)" --retry 3 --deployment
+
 
 # Copy the rest of the application files
 COPY . .
