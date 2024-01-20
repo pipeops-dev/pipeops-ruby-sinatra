@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'sinatra'
 gem 'bundler', '~> 2.0'
 
 gem 'sinatra', '4.0.0'
