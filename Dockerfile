@@ -1,5 +1,5 @@
 # Stage 1: Build environment
-FROM ruby:3.2.2 AS build
+FROM ruby:3.2.3 AS build
 
 WORKDIR /app
 
@@ -15,12 +15,11 @@ ARG PORT
 ENV PORT=${PORT}
 
 # Install dependencies
-RUN gem install bundler 
-
+RUN gem install bundler
 RUN bundle install --jobs "$(nproc)" --retry 3 --deployment
 
 # Copy the rest of the application files
 COPY . .
 
 # Start your Sinatra application
-CMD ["bundle", "exec", "ruby", "app.rb", "-p", "$PORT"]
+CMD bundle exec ruby app.rb -p $PORT
