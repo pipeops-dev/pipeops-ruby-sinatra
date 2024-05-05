@@ -22,4 +22,4 @@ RUN bundle install --jobs "$(nproc)" --retry 3 --deployment
 COPY . .
 
 # Start your Sinatra application
-CMD bundle exec ruby app.rb -p $PORT
+CMD bundle exec ruby app.rb -o 0.0.0.0 -p $PORT
