@@ -9,6 +9,11 @@ COPY Gemfile.lock ./
 
 RUN gem cleanup
 
+ARG PORT
+
+# Set the environment variables using the build arguments
+ENV PORT=${PORT}
+
 # Install dependencies
 RUN gem install bundler 
 
@@ -26,8 +31,5 @@ WORKDIR /app
 # Copy only necessary files from the build stage
 COPY --from=build /app .
 
-# Expose the port your Sinatra app will run on
-EXPOSE 4567
-
 # Start your Sinatra application
-CMD ["bundle", "exec", "ruby", "app.rb", "-p", "4567"]
+CMD ["bundle", "exec", "ruby", "app.rb", "-p", ${PORT}]
