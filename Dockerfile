@@ -19,17 +19,8 @@ RUN gem install bundler
 
 RUN bundle install --jobs "$(nproc)" --retry 3 --deployment
 
-
 # Copy the rest of the application files
 COPY . .
-
-# Stage 2: Production environment
-FROM ruby:3.2.2-slim AS production
-
-WORKDIR /app
-
-# Copy only necessary files from the build stage
-COPY --from=build /app .
 
 # Start your Sinatra application
 CMD ["bundle", "exec", "ruby", "app.rb", "-p", ${PORT}]
