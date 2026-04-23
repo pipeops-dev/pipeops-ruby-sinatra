@@ -1,27 +1,28 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    base64 (0.2.0)
-    mustermann (3.0.0)
-      ruby2_keywords (~> 0.0.1)
-    rack (3.0.8)
-    rack-protection (4.0.0)
+    base64 (0.3.0)
+    logger (1.7.0)
+    mustermann (3.1.1)
+    rack (3.2.6)
+    rack-protection (4.2.1)
       base64 (>= 0.1.0)
+      logger (>= 1.6.0)
       rack (>= 3.0.0, < 4)
-    rack-session (2.0.0)
+    rack-session (2.1.2)
+      base64 (>= 0.1.0)
       rack (>= 3.0.0)
-    rackup (2.1.0)
+    rackup (2.3.1)
       rack (>= 3)
-      webrick (~> 1.8)
-    ruby2_keywords (0.0.5)
-    sinatra (4.0.0)
+    sinatra (4.2.1)
+      logger (>= 1.6.0)
       mustermann (~> 3.0)
       rack (>= 3.0.0, < 4)
-      rack-protection (= 4.0.0)
+      rack-protection (= 4.2.1)
       rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
-    tilt (2.3.0)
-    webrick (1.8.1)
+    tilt (2.7.0)
+    webrick (1.9.2)
 
 PLATFORMS
   x86_64-linux
@@ -29,8 +30,11 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2.0)
   mustermann
+  rack (>= 3.1.21)
+  rack-session (>= 2.1.2)
   rackup
-  sinatra
+  sinatra (>= 4.2.0)
+  webrick (>= 1.8.2)
 
 BUNDLED WITH
-   2.5.5
+   2.4.19

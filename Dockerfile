@@ -21,5 +21,11 @@ RUN bundle install --jobs "$(nproc)" --retry 3 --deployment
 # Copy the rest of the application files
 COPY . .
 
+# Create a non-root user and change ownership
+RUN groupadd -r appuser && useradd -r -g appuser appuser && \
+    chown -R appuser:appuser /app
+
+USER appuser
+
 # Start your Sinatra application
 CMD bundle exec ruby app.rb -o 0.0.0.0 -p $PORT
