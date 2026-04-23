@@ -1,7 +1,7 @@
 require 'sinatra'
 
-# Allow all hosts (necessary for Docker and dynamic hosting environments)
-set :protection, except: [:host_authorization]
+# Disable all Rack protections to ensure host headers don't cause blocks in Docker/dynamic environments
+disable :protection
 
 get '/' do
   'Welcome to Pipeops Ruby on Sinatra App!'
